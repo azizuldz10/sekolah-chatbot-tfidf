@@ -15,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Ganti dengan token bot Anda
-TOKEN = os.getenv('7922307574:AAH5Wu5Swkwqw69X46URcdRt-iIbuIPh7B8')
+TOKEN = os.getenv('')
 
 def start(update, context):
     """Handler untuk command /start"""
