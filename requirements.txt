@@ -1,0 +1,5 @@
+Flask==2.1.0
+python-telegram-bot==13.7
+scikit-learn==1.0.2
+numpy==1.22.0
+requests==2.27.0

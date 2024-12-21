@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: 20%;
+        }
+        .bot-message {
+            background-color: #f5f5f5;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col">
+                <nav class="nav nav-pills">
+                    <a class="nav-link active" href="/">Chat</a>
+                    <a class="nav-link" href="/add_qa">Add QA</a>
+                    <a class="nav-link" href="/list_qa">List QA</a>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Chat Interface</h5>
+                        <a href="/qa_database" class="btn btn-primary">QA Database</a>
+                    </div>
+                    <div class="card-body">
+                        <div id="chat-container" class="chat-container"></div>
+                    </div>
+                    <div class="card-footer">
+                        <form id="chat-form" class="d-flex">
+                            <input type="text" id="user-input" class="form-control me-2" placeholder="Type your message...">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function addMessage(message, isUser) {
+            const chatContainer = $('#chat-container');
+            const messageDiv = $('<div>')
+                .addClass('chat-message')
+                .addClass(isUser ? 'user-message' : 'bot-message')
+                .text(message);
+            chatContainer.append(messageDiv);
+            chatContainer.scrollTop(chatContainer[0].scrollHeight);
+        }
+
+        $('#chat-form').submit(function(e) {
+            e.preventDefault();
+            const userInput = $('#user-input').val().trim();
+            if (!userInput) return;
+
+            // Add user message
+            addMessage(userInput, true);
+            $('#user-input').val('');
+
+            // Get bot response
+            $.ajax({
+                url: '/chat',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ message: userInput }),
+                success: function(response) {
+                    addMessage(response.response, false);
+                    console.log('Debug:', response);
+                },
+                error: function(xhr, status, error) {
+                    addMessage('Error: ' + error, false);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
