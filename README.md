@@ -18,7 +18,7 @@ Proyek ini dilisensikan di bawah MIT License. Lihat file `LICENSE` untuk detail 
 - **Status**: Aktif Pengembangan
 
 ### 👥 Kontributor
-- [Nama Anda] - Pengembang Utama
+- Azizuldz
 
 ### 🐛 Laporkan Masalah
 Silakan buka issue di repositori GitHub untuk melaporkan bug atau saran perbaikan.
