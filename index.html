@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Chatbot TFIDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .metrics-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .metrics-card:hover {
+            transform: translateY(-5px);
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .carousel-item img {
+            max-height: 600px;
+            object-fit: contain;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .carousel {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: rgba(0,0,0,0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3">🤖 Sekolah Chatbot TFIDF</h1>
+                    <p class="lead mb-4">Sistem chatbot cerdas untuk informasi pendaftaran sekolah menggunakan TF-IDF dan machine learning</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#features" class="btn btn-light">Fitur</a>
+                        <a href="#metrics" class="btn btn-outline-light">Metrik Kinerja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bot Access Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Coba Bot PPDB Sekarang!</h2>
+                    <p class="lead">Akses informasi pendaftaran dengan mudah melalui bot Telegram kami.</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://t.me/PPDBInfoBot" class="btn btn-primary btn-lg">
+                            <i class="fab fa-telegram"></i> Mulai Chat
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#botInstructionsModal">
+                            Cara Penggunaan
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Fitur Bot:</h5>
+                            <ul class="list-unstyled">
+                                <li>✅ Info biaya pendaftaran</li>
+                                <li>✅ Lokasi sekolah</li>
+                                <li>✅ Jadwal pendaftaran</li>
+                                <li>✅ Persyaratan</li>
+                                <li>✅ Cara mendaftar</li>
+                                <li>✅ Status pendaftaran</li>
+                                <li>✅ Kontak informasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Preview Bot Telegram</h2>
+            <div id="botPreviewCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#botPreviewCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#botPreviewCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#botPreviewCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#botPreviewCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/1.jpg" class="d-block w-100" alt="Bot Preview 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/2.jpg" class="d-block w-100" alt="Bot Preview 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/3.jpg" class="d-block w-100" alt="Bot Preview 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="  img/4.jpg" class="d-block w-100" alt="Bot Preview 4">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#botPreviewCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#botPreviewCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Fitur Utama</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">🎯</div>
+                            <h5 class="card-title">TF-IDF Matching</h5>
+                            <p class="card-text">Menggunakan algoritma TF-IDF untuk pencocokan pertanyaan yang akurat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">💬</div>
+                            <h5 class="card-title">Multi-Platform</h5>
+                            <p class="card-text">Tersedia di Web dan Telegram untuk kemudahan akses</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">⚡</div>
+                            <h5 class="card-title">Preprocessing Canggih</h5>
+                            <p class="card-text">Normalisasi teks dan penanganan typo untuk hasil lebih akurat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section id="metrics" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Metrik Kinerja</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <h3 class="display-5 fw-bold text-primary">94.94%</h3>
+                            <h5>Akurasi Total</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <h3 class="display-5 fw-bold text-success">97.72%</h3>
+                            <h5>Presisi</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <h3 class="display-5 fw-bold text-info">94.94%</h3>
+                            <h5>Recall</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 metrics-card">
+                        <div class="card-body text-center">
+                            <h3 class="display-5 fw-bold text-warning">95.99%</h3>
+                            <h5>F1-Score</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Implementasi</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>1. Instalasi</h4>
+                    <pre>
+git clone https://github.com/azizuldz10/sekolah-chatbot-tfidf.git
+cd sekolah-chatbot-tfidf
+pip install -r requirements.txt</pre>
+                </div>
+                <div class="col-lg-6">
+                    <h4>2. Menjalankan Evaluasi</h4>
+                    <pre>
+python run_evaluation.py</pre>
+                    <h4>3. Menjalankan Web & Telegram Bot</h4>
+                    <pre>
+python app.py</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Arsitektur Sistem</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Komponen Utama</h5>
+                            <ul class="list-unstyled">
+                                <li>📁 app.py - Web & Telegram bot server</li>
+                                <li>📁 evaluation.py - Sistem evaluasi kinerja</li>
+                                <li>📁 normalization_rules.json - Aturan preprocessing</li>
+                                <li>📁 run_evaluation.py - Script evaluasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Alur Kerja</h5>
+                            <ol>
+                                <li>Preprocessing teks input</li>
+                                <li>Vectorization dengan TF-IDF</li>
+                                <li>Pencocokan dengan cosine similarity</li>
+                                <li>Pemilihan respons terbaik</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot Instructions Modal -->
+    <div class="modal fade" id="botInstructionsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cara Menggunakan Bot</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>Klik tombol "Mulai Chat" atau kunjungi <a href="https://t.me/PPDBInfoBot">@PPDBInfoBot</a></li>
+                        <li>Klik tombol "Start" atau ketik /start</li>
+                        <li>Pilih informasi yang ingin ditanyakan dari menu yang tersedia</li>
+                        <li>Atau langsung tanyakan dengan bahasa natural, contoh:
+                            <ul>
+                                <li>"Berapa biaya pendaftarannya?"</li>
+                                <li>"Dimana lokasi sekolahnya?"</li>
+                                <li>"Apa saja syarat pendaftaran?"</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a href="https://t.me/PPDBInfoBot" class="btn btn-primary">Mulai Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">© 2024 Sekolah Chatbot TFIDF. MIT License.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
