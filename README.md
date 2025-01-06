@@ -1,7 +1,7 @@
 # 🤖 Sekolah Chatbot TFIDF
 
 ## Deskripsi Proyek
-Chatbot cerdas untuk sistem informasi pendaftaran sekolah menggunakan teknologi TF-IDF dan machine learning. Mendukung antarmuka web dan Telegram untuk memudahkan calon siswa mendapatkan informasi pendaftaran.
+Chatbot cerdas untuk sistem informasi pendaftaran sekolah menggunakan teknologi TF-IDF . Mendukung antarmuka web dan Telegram untuk memudahkan calon siswa mendapatkan informasi pendaftaran.
 
 ### 🌟 Fitur Utama
 - Jawaban otomatis seputar pendaftaran sekolah
